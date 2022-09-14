@@ -9,27 +9,7 @@
 </head>
 <body>
     <main>
-        <form action="" method="post">
-            <div class="form__name">
-                <label for="name">Enter your name</label>
-                <input type="text" name="name">
-            </div>
-            <div class="form__firstname">
-                <label for="firstname">Enter your firstname</label>
-                <input type="text" name="firstname">
-            </div>
-            <div class="form__mail">
-                <label for="mail">Enter your mail</label>
-                <input type="text" name="mail">
-            </div>
-            <div class="form__description">
-                <label for="description">Describe the problem</label>
-                <input type="text" name="description">
-            </div>
-            <div class="form__submit">
-                <input type="submit" value="Submit">
-            </div>
-        </form>
+        <?php include ('form.php')?>
     </main>
 </body>
 </html>
