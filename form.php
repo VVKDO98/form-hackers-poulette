@@ -85,35 +85,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-    <div class="form__name">
-        <label for="name">Name</label>
-        <input type="text" name="name" placeholder="Ron">
-        <?php if(isset($nameErr)){?>
-            <p><?php echo $nameErr ?></p>
-        <?php } ?>
-    </div>
-    <div class="form__firstname">
-        <label for="firstname">Firstname</label>
-        <input type="text" name="firstname" placeholder="Weasley">
-        <?php if(isset($firstnameErr)){?>
-            <p><?php echo $firstnameErr ?></p>
-        <?php } ?>
-    </div>
-    <div class="form__mail">
-        <label for="mail">E-mail</label>
-        <input type="email" name="mail" placeholder="ronweasley@wizard.com">
-        <?php if(isset($mailErr)){?>
-            <p><?php echo $mailErr ?></p>
-        <?php } ?>
-    </div>
-    <div class="form__description">
-        <label for="description">Message</label>
-        <input type="text" name="description">
-        <?php if(isset($descriptionErr)){?>
-            <p><?php echo $descriptionErr ?></p>
-        <?php } ?>
-    </div>
-    <div class="form__submit">
-        <input type="submit" value="Submit">
+    <div class="form">
+        <div class="form__name form__block">
+            <input class="form__input" type="text" name="name" placeholder="Your name">
+            <?php if(isset($nameErr)){?>
+                <p><?php echo $nameErr ?></p>
+            <?php } ?>
+        </div>
+        <div class="form__firstname form__block">
+            <input class="form__input" type="text" name="firstname" placeholder="Your firstname">
+            <?php if(isset($firstnameErr)){?>
+                <p><?php echo $firstnameErr ?></p>
+            <?php } ?>
+        </div>
+        <div class="form__mail form__block">
+            <input class="form__input" type="email" name="mail" placeholder="Your email">
+            <?php if(isset($mailErr)){?>
+                <p><?php echo $mailErr ?></p>
+            <?php } ?>
+        </div>
+        <div class="form__description form__block">
+            <input class="form__input" type="text" name="description" placeholder="Your message">
+            <?php if(isset($descriptionErr)){?>
+                <p><?php echo $descriptionErr ?></p>
+            <?php } ?>
+        </div>
+        <div class="form__submit form__block">
+            <input type="submit" value="Send" id="submit">
+        </div>
     </div>
 </form>
