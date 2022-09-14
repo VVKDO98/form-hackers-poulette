@@ -26,6 +26,9 @@
                 <label for="description">Describe the problem</label>
                 <input type="text" name="description">
             </div>
+            <div class="form__submit">
+                <input type="submit" value="Submit">
+            </div>
         </form>
     </main>
 </body>
