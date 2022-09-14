@@ -8,61 +8,43 @@ function sanitize($data){
     return $data;
 }
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['description'])){
 
-    $name = $firstname = $mail = $description = "";
-    $nameErr = $firstnameErr = $mailErr = $descriptionErr = "";
+        $name = filter_var(sanitize($_POST['name']),FILTER_SANITIZE_STRING);
+        $firstname = filter_var(sanitize($_POST['firstname']),FILTER_SANITIZE_STRING);
+        $mail = filter_var(sanitize($_POST['mail']),FILTER_SANITIZE_EMAIL);
+        $description = filter_var(sanitize($_POST['description']),FILTER_SANITIZE_STRING);
 
-    if (empty($_POST['name'])){
-        $nameErr = "Name is required";
-    } else{
-        $name = sanitize($_POST['name']);
-    }
-    if (empty($_POST['firstname'])){
-        $firstnameErr = "Firstname is required";
-    } else{
-        $firstname = sanitize($_POST['firstname']);
-    }
-    if (empty($_POST['mail'])){
-        $firstnameErr = "Mail is required";
-    } else{
-        $mail = sanitize($_POST['mail']);
-    }
-    if (empty($_POST['description'])){
-        $firstnameErr = "Description is required";
-    } else{
-        $description = sanitize($_POST['description']);
-    }
+        $insert = $db->prepare("INSERT INTO contact (name,firstname,mail,description) VALUES (?,?,?,?)");
 
-    $insert = $db->prepare("INSERT INTO contact (name,firstname,mail,description) VALUES (?,?,?,?)");
-
-    $insert->execute([
-        $name,
-        $firstname,
-        $mail,
-        $description
-    ]);
+        $insert->execute([
+            $name,
+            $firstname,
+            $mail,
+            $description
+        ]);
+    }
 }
 
-
-
-
 ?>
+
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
     <div class="form__name">
-        <label for="name">Enter your name</label>
+        <label for="name">Name</label>
         <input type="text" name="name" placeholder="Ron">
     </div>
     <div class="form__firstname">
-        <label for="firstname">Enter your firstname</label>
+        <label for="firstname">Firstname</label>
         <input type="text" name="firstname" placeholder="Weasley">
     </div>
     <div class="form__mail">
-        <label for="mail">Enter your mail</label>
-        <input type="text" name="mail" placeholder="ronweasleyisnotginger@mail.com">
+        <label for="mail">E-mail</label>
+        <input type="email" name="mail" placeholder="ronweasley@wizard.com">
     </div>
     <div class="form__description">
-        <label for="description">Describe the problem</label>
+        <label for="description">Message</label>
         <input type="text" name="description">
     </div>
     <div class="form__submit">
