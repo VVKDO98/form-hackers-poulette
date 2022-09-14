@@ -17,10 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     } else{
         if(strlen($_POST['name']) < 2){
-            $nameErr = "Name is moins de 2";
+            $nameErr = "Name contains less than 2 characters";
             $valid = false;
         } elseif (strlen($_POST['name']) > 255){
-            $nameErr = "Name is plus grand que 255";
+            $nameErr = "Name contains more than 255 characters";
             $valid = false;
         }
     }
@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }else{
         if(strlen($_POST['firstname']) < 2){
-            $nameErr = "Firstname is moins de 2";
+            $nameErr = "Firstname contains less than 2 characters";
             $valid = false;
         } elseif (strlen($_POST['firstname']) > 255){
-            $nameErr = "Firstname is plus grand que 255";
+            $nameErr = "Firstname contains more than 255 characters";
             $valid = false;
         }
     }
@@ -43,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }else{
         if(strlen($_POST['mail']) < 2){
-            $mailErr = "Mail is moins de 2";
+            $mailErr = "Mail contains less than 2 characters";
             $valid = false;
         } elseif (strlen($_POST['mail']) > 255){
-            $mailErr = "Mail is plus grand que 255";
+            $mailErr = "Mail contains more than 255 characters";
             $valid = false;
         }
     }
@@ -56,10 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $valid = false;
     }else{
         if(strlen($_POST['description']) < 2){
-            $descriptionErr = "Description is moins de 2";
+            $descriptionErr = "Description contains less than 2 characters";
             $valid = false;
         } elseif (strlen($_POST['description']) > 255){
-            $descriptionErr = "Description is plus grand que 255";
+            $descriptionErr = "Description contains more than 255 characters";
             $valid = false;
         }
     }
