@@ -64,6 +64,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    // reCaptcha
+//    $captchaKey = "6Lfk_vkhAAAAAJRCH5dKf_xGVwy6Fq0NH8UEYoTm";
+//    $responseKey = $_POST['g-recaptcha-response'];
+//    $userIP = $_SERVER['REMOTE_ADDR'];
+//    $url = "https://www.google.com/recaptcha/api/siteverify?secret=$captchaKey&response=$responseKey&remoteip=$userIP";
+//
+//    $response = file_get_contents($url);
+//    $response = json_decode($response);
+//
+//    if($response->success){
+//        $valid = true;
+//    } else{
+//        $valid = false;
+//        echo "Invalid Captcha";
+//    }
     // If it's valid send to DB
     if ($valid){
         $name = filter_var(sanitize($_POST['name']),FILTER_SANITIZE_STRING);
@@ -113,6 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <p><?php echo $descriptionErr ?></p>
         <?php } ?>
     </div>
+<!--    <div class="g-recaptcha" data-sitekey="6Lfk_vkhAAAAAJRCH5dKf_xGVwy6Fq0NH8UEYoTm"></div>-->
     <div class="form__submit">
         <input type="submit" value="Submit">
     </div>
