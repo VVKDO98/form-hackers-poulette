@@ -8,10 +8,64 @@ function sanitize($data){
     return $data;
 }
 
+$valid = true;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(isset($_POST['name']) && isset($_POST['firstname']) && isset($_POST['mail']) && isset($_POST['description'])){
+    // Check if name is valid
+    if(!isset($_POST['name'])){
+        $nameErr = "Name is empty";
+        $valid = false;
+    } else{
+        if(strlen($_POST['name']) < 2){
+            $nameErr = "Name is moins de 2";
+            $valid = false;
+        } elseif (strlen($_POST['name']) > 255){
+            $nameErr = "Name is plus grand que 255";
+            $valid = false;
+        }
+    }
+    // Check if firstname is valid
+    if(!isset($_POST['firstname'])){
+        $firstnameErr = "Firstname is empty";
+        $valid = false;
+    }else{
+        if(strlen($_POST['firstname']) < 2){
+            $nameErr = "Firstname is moins de 2";
+            $valid = false;
+        } elseif (strlen($_POST['firstname']) > 255){
+            $nameErr = "Firstname is plus grand que 255";
+            $valid = false;
+        }
+    }
+    // Check if mail is valid
+    if(!isset($_POST['mail'])){
+        $mailErr = "Mail is empty";
+        $valid = false;
+    }else{
+        if(strlen($_POST['mail']) < 2){
+            $mailErr = "Mail is moins de 2";
+            $valid = false;
+        } elseif (strlen($_POST['mail']) > 255){
+            $mailErr = "Mail is plus grand que 255";
+            $valid = false;
+        }
+    }
+    // Check if description is valid
+    if(!isset($_POST['description'])){
+        $descriptionErr = "Description is empty";
+        $valid = false;
+    }else{
+        if(strlen($_POST['description']) < 2){
+            $descriptionErr = "Description is moins de 2";
+            $valid = false;
+        } elseif (strlen($_POST['description']) > 255){
+            $descriptionErr = "Description is plus grand que 255";
+            $valid = false;
+        }
+    }
 
+    // If it's valid send to DB
+    if ($valid){
         $name = filter_var(sanitize($_POST['name']),FILTER_SANITIZE_STRING);
         $firstname = filter_var(sanitize($_POST['firstname']),FILTER_SANITIZE_STRING);
         $mail = filter_var(sanitize($_POST['mail']),FILTER_SANITIZE_EMAIL);
@@ -34,18 +88,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form__name">
         <label for="name">Name</label>
         <input type="text" name="name" placeholder="Ron">
+        <?php if(isset($nameErr)){?>
+            <p><?php echo $nameErr ?></p>
+        <?php } ?>
     </div>
     <div class="form__firstname">
         <label for="firstname">Firstname</label>
         <input type="text" name="firstname" placeholder="Weasley">
+        <?php if(isset($firstnameErr)){?>
+            <p><?php echo $firstnameErr ?></p>
+        <?php } ?>
     </div>
     <div class="form__mail">
         <label for="mail">E-mail</label>
         <input type="email" name="mail" placeholder="ronweasley@wizard.com">
+        <?php if(isset($mailErr)){?>
+            <p><?php echo $mailErr ?></p>
+        <?php } ?>
     </div>
     <div class="form__description">
         <label for="description">Message</label>
         <input type="text" name="description">
+        <?php if(isset($descriptionErr)){?>
+            <p><?php echo $descriptionErr ?></p>
+        <?php } ?>
     </div>
     <div class="form__submit">
         <input type="submit" value="Submit">
