@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="style/scss/style.css">
 </head>
 <body>
+    <header>
+        <h1>Hackers<br>Poulette</h1>
+    </header>
     <main>
         <?php include ('form.php')?>
     </main>

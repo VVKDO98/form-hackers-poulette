@@ -4,4 +4,7 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  @include desktop{
+    justify-content: flex-end;
+  }
 }
