@@ -95,15 +95,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="form">
         <div class="form__name form__block">
             <input class="form__input" type="text" name="name" placeholder="Your name" id="inputName">
-            <?php if(isset($nameErr)){?>
-                <p><?php echo $nameErr ?></p>
-            <?php } ?>
         </div>
         <div class="form__firstname form__block">
             <input class="form__input" type="text" name="firstname" placeholder="Your firstname" id="inputFirstname">
-            <?php if(isset($firstnameErr)){?>
-                <p><?php echo $firstnameErr ?></p>
-            <?php } ?>
         </div>
         <div class="form__mail form__block">
             <input class="form__input" type="email" name="mail" placeholder="Your email" id="inputMail">
