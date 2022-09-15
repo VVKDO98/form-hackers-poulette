@@ -13,11 +13,15 @@ form{
         &__block{
             margin: 15px 0;
         }
+        #form__errorMessage{
+            font-size: 14px;
+            color: #F0F230;
+        }
         &__input{
             width: 100%;
             height: 40px;
             border: none;
-            border-bottom: 1px solid #5D5C5D;
+            border-bottom: 1px solid #5d5c5c;
             background-color: #010001;
             padding-left: 15px;
             color: #fff;
@@ -40,9 +44,13 @@ form{
         &__description{
             display: flex;
             flex-direction: column;
+            textarea{
+                height: 150px;
+                resize: none;
+            }
         }
         &__submit{
-            #submit{
+            #submitbtn{
                 width: 150px;
                 height: 40px;
                 border: none;
