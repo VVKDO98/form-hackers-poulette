@@ -40,6 +40,10 @@ form{
         &__description{
             display: flex;
             flex-direction: column;
+            textarea{
+                height: 150px;
+                resize: none;
+            }
         }
         &__submit{
             #submit{

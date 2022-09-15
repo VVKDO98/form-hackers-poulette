@@ -94,16 +94,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contactForm">
     <div class="form">
         <div class="form__name form__block">
-            <input class="form__input" id="inputName" type="text" name="name" placeholder="Your name" required minlength="2" maxlength="255">
+            <input class="form__input" id="inputName" type="text" name="name" placeholder="Your name" required>
         </div>
         <div class="form__firstname form__block">
-            <input class="form__input" id="inputFirstname" type="text" name="firstname" placeholder="Your firstname" required minlength="2" maxlength="255">
+            <input class="form__input" id="inputFirstname" type="text" name="firstname" placeholder="Your firstname" required>
         </div>
         <div class="form__mail form__block">
-            <input class="form__input" id="inputMail" type="email" name="mail" placeholder="Your email" required minlength="2" maxlength="255">
+            <input class="form__input" id="inputMail" type="email" name="mail" placeholder="Your email" required>
         </div>
         <div class="form__description form__block">
-            <input class="form__input" id="inputDescription" type="text" name="description" placeholder="Your message" required minlength="2" maxlength="1000">
+<!--            <input class="form__input" id="inputDescription" type="text" name="description" placeholder="Your message" required>-->
+            <textarea class="form__input" name="description" id="inputDescription" cols="30" rows="10"  placeholder="Your message"  required></textarea>
         </div>
         <div class="form__submit form__block">
             <input type="submit" value="Send" id="submit">

@@ -6,11 +6,8 @@ const inputDescription = document.getElementById('inputDescription');
 const submit = document.getElementById('submit');
 
 function checkLength($data){
-    // let error = document.createElement('p');
     if($data.value.length < 2){
         $data.style.borderBottom = "1px solid #ff0000";
-        // error.innerText = "Trop court";
-        // $data.parentNode.appendChild(error);
     } else{
         $data.style.borderBottom = "1px solid #5d5c5c";
     }
@@ -34,3 +31,7 @@ inputMail.addEventListener('blur', e =>{
 inputDescription.addEventListener('blur', e =>{
     checkLength(inputDescription);
 })
+
+// submit.addEventListener('click', e =>{
+//     e.preventDefault();
+// })

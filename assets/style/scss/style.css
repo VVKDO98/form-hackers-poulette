@@ -355,7 +355,7 @@ form .form__input {
   width: 100%;
   height: 40px;
   border: none;
-  border-bottom: 1px solid #5D5C5D;
+  border-bottom: 1px solid #5d5c5c;
   background-color: #010001;
   padding-left: 15px;
   color: #fff;
@@ -384,6 +384,10 @@ form .form__mail {
 form .form__description {
   display: flex;
   flex-direction: column;
+}
+form .form__description textarea {
+  height: 150px;
+  resize: none;
 }
 form .form__submit #submit {
   width: 150px;
