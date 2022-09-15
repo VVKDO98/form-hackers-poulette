@@ -7,7 +7,7 @@ const submit = document.getElementById('submitbtn');
 
 function checkLength($data){
     if($data.value.length < 2){
-        $data.style.borderBottom = "1px solid #ff0000";
+        $data.style.borderBottom = "1px solid #F0F230";
     } else{
         $data.style.borderBottom = "1px solid #5d5c5c";
     }
@@ -15,7 +15,7 @@ function checkLength($data){
         $data.style.borderBottom = "1px solid #5d5c5c";
     }
     if($data.value.length > 255){
-        $data.style.borderBottom = "1px solid #ff0000";
+        $data.style.borderBottom = "1px solid #F0F230";
     }
 }
 
@@ -58,11 +58,13 @@ function sendFormIfOk(){
 
 
 submit.addEventListener('click', e =>{
+    const errorMessage = document.getElementById('form__errorMessage');
+
     e.preventDefault();
     if (sendFormIfOk()){
         form.submit();
     } else{
-        console.log("55565656")
+        errorMessage.innerText = "Something is wrong with your information, please make sure not to use numbers in your first and last name and to enter a valid email address.";
     }
 })
 

@@ -93,6 +93,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contactForm">
     <div class="form">
+        <div class="form__error">
+            <p id="form__errorMessage"></p>
+        </div>
         <div class="form__name form__block">
             <input class="form__input" id="inputName" type="text" name="name" placeholder="Your name" required>
         </div>
