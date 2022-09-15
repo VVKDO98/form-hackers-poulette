@@ -103,11 +103,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input class="form__input" id="inputMail" type="email" name="mail" placeholder="Your email" required>
         </div>
         <div class="form__description form__block">
-<!--            <input class="form__input" id="inputDescription" type="text" name="description" placeholder="Your message" required>-->
             <textarea class="form__input" name="description" id="inputDescription" cols="30" rows="10"  placeholder="Your message"  required></textarea>
         </div>
         <div class="form__submit form__block">
-            <input type="submit" value="Send" id="submit">
+            <input type="submit" value="Send" id="submitbtn">
         </div>
     </div>
 </form>
