@@ -79,6 +79,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail,
             $description
         ]);
+
+        // Send mail
+        $to = "vanvolcksom.doriano01@gmail.com";
+        $subject = "Message successfully sent";
+        $message = "We have received your email, we will contact you as soon as possible!";
+
+        mail($to,$subject,$message);
     }
 }
 
