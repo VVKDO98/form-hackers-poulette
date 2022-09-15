@@ -407,7 +407,7 @@ form .form__submit #submit:hover {
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("../../assets/bg.jpg");
+  background-image: url("../../img/bg.jpg");
   background-size: cover;
   background-position: center center;
   position: relative;

@@ -84,28 +84,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contactForm">
     <div class="form">
         <div class="form__name form__block">
-            <input class="form__input" type="text" name="name" placeholder="Your name">
+            <input class="form__input" type="text" name="name" placeholder="Your name" id="inputName">
             <?php if(isset($nameErr)){?>
                 <p><?php echo $nameErr ?></p>
             <?php } ?>
         </div>
         <div class="form__firstname form__block">
-            <input class="form__input" type="text" name="firstname" placeholder="Your firstname">
+            <input class="form__input" type="text" name="firstname" placeholder="Your firstname" id="inputFirstname">
             <?php if(isset($firstnameErr)){?>
                 <p><?php echo $firstnameErr ?></p>
             <?php } ?>
         </div>
         <div class="form__mail form__block">
-            <input class="form__input" type="email" name="mail" placeholder="Your email">
+            <input class="form__input" type="email" name="mail" placeholder="Your email" id="inputMail">
             <?php if(isset($mailErr)){?>
                 <p><?php echo $mailErr ?></p>
             <?php } ?>
         </div>
         <div class="form__description form__block">
-            <input class="form__input" type="text" name="description" placeholder="Your message">
+            <input class="form__input" type="text" name="description" placeholder="Your message" id="inputDescription">
             <?php if(isset($descriptionErr)){?>
                 <p><?php echo $descriptionErr ?></p>
             <?php } ?>
