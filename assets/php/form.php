@@ -64,20 +64,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    $files = $_FILES;
+    $errors= array();
+    $file_name = $files['file']['name'];
+    $file_size =$files['file']['size'];
+    $file_tmp =$files['file']['tmp_name'];
+    $file_type = $files['file']['type'];
+    $file_ext = mime_content_type($file_tmp);
+    $extensions = array("image/jpeg","image/jpg","image/png");
+    $filefullpath = "./uploadedFiles/${file_name}";
+
+    if(!isset($_FILES['file']) || !in_array($file_ext,$extensions) || $file_size > 2097152){
+        $valid = false;
+        $errors[]='Error';
+    } elseif (empty($errors) == true){
+        $valid = true;
+        move_uploaded_file($file_tmp,$filefullpath);
+    }
+
     // If it's valid send to DB
     if ($valid){
         $name = filter_var(sanitize($_POST['name']),FILTER_SANITIZE_STRING);
         $firstname = filter_var(sanitize($_POST['firstname']),FILTER_SANITIZE_STRING);
         $mail = filter_var(sanitize($_POST['mail']),FILTER_SANITIZE_EMAIL);
         $description = filter_var(sanitize($_POST['description']),FILTER_SANITIZE_STRING);
+        $file = $filefullpath;
 
-        $insert = $db->prepare("INSERT INTO contact (name,firstname,mail,description) VALUES (?,?,?,?)");
+        $insert = $db->prepare("INSERT INTO contact (name,firstname,mail,description,file) VALUES (?,?,?,?,?)");
 
         $insert->execute([
             $name,
             $firstname,
             $mail,
-            $description
+            $description,
+            $file
         ]);
 
         // Send mail
@@ -91,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contactForm">
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="contactForm" enctype="multipart/form-data">
     <div class="form">
         <div class="form__error">
             <p id="form__errorMessage"></p>
@@ -107,6 +127,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form__description form__block">
             <textarea class="form__input" name="description" id="inputDescription" cols="30" rows="10"  placeholder="Your message"  required></textarea>
+        </div>
+        <div class="form__file form__block">
+            <input type="file" name="file">
         </div>
         <div class="form__submit form__block">
             <input type="submit" value="Send" id="submitbtn">
