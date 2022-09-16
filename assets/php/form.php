@@ -129,7 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <textarea class="form__input" name="description" id="inputDescription" cols="30" rows="10"  placeholder="Your message"  required></textarea>
         </div>
         <div class="form__file form__block">
-            <input type="file" name="file">
+            <input class="input__file" type="file" name="file" id="file">
+            <label class="input__fileLabel" for="file">Choose a file</label>
         </div>
         <div class="form__submit form__block">
             <input type="submit" value="Send" id="submitbtn">

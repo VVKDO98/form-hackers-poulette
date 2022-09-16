@@ -393,7 +393,22 @@ form .form__description textarea {
   height: 150px;
   resize: none;
 }
-form .form__submit #submitbtn {
+form .form .input__file {
+  display: none;
+}
+form .form .input__fileLabel {
+  color: #010001;
+  background-color: #fff;
+  padding: 10px 25px;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+form .form .input__fileLabel:hover {
+  background-color: #010001;
+  border: solid 1px #fff;
+  color: #fff;
+}
+form .form #submitbtn {
   width: 150px;
   height: 40px;
   border: none;
@@ -401,7 +416,7 @@ form .form__submit #submitbtn {
   font-weight: 700;
   transition: all 0.2s ease;
 }
-form .form__submit #submitbtn:hover {
+form .form #submitbtn:hover {
   background-color: #010001;
   border: solid 1px #fff;
   color: #fff;

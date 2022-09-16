@@ -49,19 +49,32 @@ form{
                 resize: none;
             }
         }
-        &__submit{
-            #submitbtn{
-                width: 150px;
-                height: 40px;
-                border: none;
-                background-color: #fff;
-                font-weight: 700;
-                transition: all 0.2s ease;
-                &:hover{
-                    background-color: #010001;
-                    border: solid 1px #fff;
-                    color: #fff;
-                }
+        .input__file{
+            display: none;
+        }
+        .input__fileLabel{
+            color: #010001;
+            background-color: #fff;
+            padding: 10px 25px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            &:hover{
+                background-color: #010001;
+                border: solid 1px #fff;
+                color: #fff;
+            }
+        }
+        #submitbtn{
+            width: 150px;
+            height: 40px;
+            border: none;
+            background-color: #fff;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            &:hover{
+                background-color: #010001;
+                border: solid 1px #fff;
+                color: #fff;
             }
         }
     }
