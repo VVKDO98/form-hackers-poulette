@@ -1,5 +1,5 @@
 <?php
-require ('db.php');
+require('db.php');
 
 function sanitize($data){
     $data = trim($data);

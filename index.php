@@ -13,7 +13,7 @@
         <h1>Hackers<br>Poulette</h1>
     </header>
     <main>
-        <?php include ('form.php')?>
+        <?php include('assets/php/form.php') ?>
     </main>
     <script src="assets/js/main.js"></script>
 </body>
