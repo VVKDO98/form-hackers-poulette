@@ -64,40 +64,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-    $files = $_FILES;
-    $errors= array();
-    $file_name = $files['file']['name'];
-    $file_size =$files['file']['size'];
-    $file_tmp =$files['file']['tmp_name'];
-    $file_type = $files['file']['type'];
-    $file_ext = mime_content_type($file_tmp);
-    $extensions = array("image/jpeg","image/jpg","image/png");
-    $filefullpath = "./uploadedFiles/${file_name}";
-
-    if(!isset($_FILES['file']) || !in_array($file_ext,$extensions) || $file_size > 2097152){
-        $valid = false;
-        $errors[]='Error';
-    } elseif (empty($errors) == true){
-        $valid = true;
-        move_uploaded_file($file_tmp,$filefullpath);
-    }
-
     // If it's valid send to DB
     if ($valid){
         $name = filter_var(sanitize($_POST['name']),FILTER_SANITIZE_STRING);
         $firstname = filter_var(sanitize($_POST['firstname']),FILTER_SANITIZE_STRING);
         $mail = filter_var(sanitize($_POST['mail']),FILTER_SANITIZE_EMAIL);
         $description = filter_var(sanitize($_POST['description']),FILTER_SANITIZE_STRING);
-        $file = $filefullpath;
 
-        $insert = $db->prepare("INSERT INTO contact (name,firstname,mail,description,file) VALUES (?,?,?,?,?)");
+        $insert = $db->prepare("INSERT INTO contact (name,firstname,mail,description) VALUES (?,?,?,?)");
 
         $insert->execute([
             $name,
             $firstname,
             $mail,
-            $description,
-            $file
+            $description
         ]);
 
         // Send mail
@@ -139,10 +119,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php if(isset($descriptionErr)){?>
                 <p><?php echo $descriptionErr ?></p>
             <?php } ?>
-        </div>
-        <div class="form__file form__block">
-            <input class="input__file" type="file" name="file" id="file">
-            <label class="input__fileLabel" for="file">Choose a file</label>
         </div>
         <div class="form__submit form__block">
             <input type="submit" value="Send" id="submitbtn">
