@@ -118,15 +118,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
         <div class="form__name form__block">
             <input class="form__input" id="inputName" type="text" name="name" placeholder="Your name" required>
+            <?php if(isset($nameErr)){?>
+                <p><?php echo $nameErr ?></p>
+            <?php } ?>
         </div>
         <div class="form__firstname form__block">
             <input class="form__input" id="inputFirstname" type="text" name="firstname" placeholder="Your firstname" required>
+            <?php if(isset($firstnameErr)){?>
+                <p><?php echo $firstnameErr ?></p>
+            <?php } ?>
         </div>
         <div class="form__mail form__block">
             <input class="form__input" id="inputMail" type="email" name="mail" placeholder="Your email" required>
+            <?php if(isset($mailErr)){?>
+                <p><?php echo $mailErr ?></p>
+            <?php } ?>
         </div>
         <div class="form__description form__block">
             <textarea class="form__input" name="description" id="inputDescription" cols="30" rows="10"  placeholder="Your message"  required></textarea>
+            <?php if(isset($descriptionErr)){?>
+                <p><?php echo $descriptionErr ?></p>
+            <?php } ?>
         </div>
         <div class="form__file form__block">
             <input class="input__file" type="file" name="file" id="file">

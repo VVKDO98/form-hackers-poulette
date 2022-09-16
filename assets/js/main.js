@@ -3,6 +3,7 @@ const inputName = document.getElementById('inputName');
 const inputFirstname = document.getElementById('inputFirstname');
 const inputMail = document.getElementById('inputMail');
 const inputDescription = document.getElementById('inputDescription');
+const inputFile = document.getElementById('file');
 const submit = document.getElementById('submitbtn');
 
 function checkLength($data){
